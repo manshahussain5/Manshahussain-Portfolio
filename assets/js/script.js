@@ -124,11 +124,20 @@ const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
 
+console.log("Form elements found:", { form, formInputs, formBtn }); // Debug log
+
+// Add click event to button for debugging
+if (formBtn) {
+  formBtn.addEventListener("click", function() {
+    console.log("Button clicked!"); // Debug log
+  });
+}
+
 // Add event to all form input fields
 for (let i = 0; i < formInputs.length; i++) {
   formInputs[i].addEventListener("input", function () {
-    // Enable or disable button based on form validity
-    formBtn.disabled = !form.checkValidity();
+    // Button remains enabled at all times
+    formBtn.disabled = false;
   });
 }
 
@@ -136,23 +145,55 @@ emailjs.init("wrXusl6_vgu9H1tKS"); // Your EmailJS User ID
 
 document.querySelector("[data-form]").addEventListener("submit", function (event) {
   event.preventDefault();
+  console.log("Form submitted!"); // Debug log
 
-  // Disable the button and change text to indicate progress
+  // Get form data
+  const formData = new FormData(this);
+  const name = formData.get('name');
+  const email = formData.get('email');
+  const message = formData.get('message');
+  
+  console.log("Form data:", { name, email, message }); // Debug log
+
+  // Check if any required field is empty
+  if (!name || !email || !message) {
+    alert("Please fill in all fields before sending the message.");
+    return;
+  }
+
+  // Show immediate feedback
   formBtn.disabled = true;
   formBtn.textContent = "Sending...";
+  formBtn.style.opacity = "0.8";
 
   emailjs.sendForm("service_q2hvulm", "template_znhlk8o", this)
     .then(() => {
-      alert("Email sent successfully!");
-      form.reset(); // Clear the form
-      formBtn.textContent = "Send Message"; // Reset button text
-      formBtn.disabled = true; // Keep button disabled until user inputs again
+      formBtn.textContent = "✓ Sent!";
+      formBtn.style.background = "linear-gradient(135deg, hsl(120, 100%, 50%), hsl(120, 100%, 40%))";
+      
+      // Quick success feedback
+      setTimeout(() => {
+        alert("Email sent successfully!");
+        form.reset();
+        formBtn.textContent = "Send Message";
+        formBtn.style.background = "linear-gradient(135deg, hsl(25, 100%, 60%), hsl(25, 100%, 50%))";
+        formBtn.style.opacity = "1";
+        formBtn.disabled = false;
+      }, 500);
     })
     .catch((error) => {
       console.error("Failed to send email:", error);
-      alert("Failed to send email. Please try again.");
-      formBtn.textContent = "Send Message"; // Reset button text
-      formBtn.disabled = false; // Re-enable button on error
+      formBtn.textContent = "✗ Failed";
+      formBtn.style.background = "linear-gradient(135deg, hsl(0, 100%, 50%), hsl(0, 100%, 40%))";
+      
+      // Quick error feedback
+      setTimeout(() => {
+        alert("Failed to send email. Please try again.");
+        formBtn.textContent = "Send Message";
+        formBtn.style.background = "linear-gradient(135deg, hsl(25, 100%, 60%), hsl(25, 100%, 50%))";
+        formBtn.style.opacity = "1";
+        formBtn.disabled = false;
+      }, 1000);
     });
 });
 
