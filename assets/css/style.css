@@ -1828,7 +1828,7 @@ textarea.form-input::-webkit-resizer { display: none; }
    */
 
   .navbar {
-    padding: 1rem 13rem 1rem 3rem;
+    padding: 1rem 13rem 1rem 2.5rem;
   }
 
   .mobile-menu-btn {
