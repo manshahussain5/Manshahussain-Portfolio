@@ -1972,7 +1972,7 @@ textarea.form-input::-webkit-resizer { display: none; }
    */
 
   .navbar {
-    padding: 1rem 13rem 1rem 4rem;
+    padding: 1rem 13rem 1rem 3.5rem;
   }
 
   .navbar-menu {
