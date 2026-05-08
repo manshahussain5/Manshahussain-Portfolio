@@ -351,9 +351,9 @@ main {
 \*-----------------------------------*/
 
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 6rem 2rem 2rem 2rem;
   background: linear-gradient(135deg, 
@@ -598,6 +598,7 @@ main {
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  overflow: hidden;
 }
 
 .navbar-logo {
