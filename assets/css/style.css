@@ -588,7 +588,7 @@ main {
   border-bottom: 1px solid var(--jet);
   box-shadow: 0 4px 20px hsla(0, 0%, 0%, 0.3);
   z-index: 1000;
-  padding: 1rem 2rem 1rem 3rem;
+  padding: 1rem 2rem 1rem 1.5rem;
 }
 
 .navbar-container {
@@ -1826,6 +1826,10 @@ textarea.form-input::-webkit-resizer { display: none; }
   /**
    * NAVBAR
    */
+
+  .navbar {
+    padding: 1rem 2rem 1rem 3rem;
+  }
 
   .mobile-menu-btn {
     display: none;
