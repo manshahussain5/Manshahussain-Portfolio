@@ -598,7 +598,6 @@ main {
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-  overflow: hidden;
 }
 
 .navbar-logo {
@@ -1850,7 +1849,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     border: none;
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 0.5rem;
     margin-left: auto;
     flex: none;
     justify-content: flex-end;
@@ -1858,10 +1857,14 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .navbar-list {
     flex-direction: row;
-    gap: 1.5rem;
+    gap: 0.8rem;
     margin-bottom: 0;
     width: auto;
     justify-content: flex-end;
+  }
+
+  .navbar-link {
+    font-size: 0.95rem;
   }
 
   .contact-btn {
@@ -2067,13 +2070,15 @@ textarea.form-input::-webkit-resizer { display: none; }
    */
 
   .navbar-menu {
-    margin-left: auto;
-    justify-content: flex-end;
+    gap: 2rem;
   }
 
   .navbar-list {
-    width: auto;
-    justify-content: flex-end;
+    gap: 1.5rem;
+  }
+
+  .navbar-link {
+    font-size: 1.2rem;
   }
 
   /**
