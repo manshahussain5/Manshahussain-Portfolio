@@ -1850,17 +1850,17 @@ textarea.form-input::-webkit-resizer { display: none; }
     display: flex;
     align-items: center;
     gap: 2rem;
-    margin-left: 47%;
+    margin-left: auto;
     flex: none;
-    justify-content: flex-start;
+    justify-content: flex-end;
   }
 
   .navbar-list {
     flex-direction: row;
     gap: 1.5rem;
     margin-bottom: 0;
-    width: 38%;
-    justify-content: space-between;
+    width: auto;
+    justify-content: flex-end;
   }
 
   .contact-btn {
@@ -1963,6 +1963,20 @@ textarea.form-input::-webkit-resizer { display: none; }
  */
 
 @media (min-width: 1024px) {
+
+  /**
+   * NAVBAR
+   */
+
+  .navbar-menu {
+    margin-left: 47%;
+    justify-content: flex-start;
+  }
+
+  .navbar-list {
+    width: 38%;
+    justify-content: space-between;
+  }
 
   /**
    * CUSTOM PROPERTY
