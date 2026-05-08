@@ -1971,6 +1971,10 @@ textarea.form-input::-webkit-resizer { display: none; }
    * NAVBAR
    */
 
+  .navbar {
+    padding: 1rem 13rem 1rem 4rem;
+  }
+
   .navbar-menu {
     margin-left: 56%;
     justify-content: flex-start;
